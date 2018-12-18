@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=16:antialias=true:autohint=true";
+static char *font = "mono:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -189,8 +189,8 @@ ResourcePref resources[] = {
  */
 static MouseShortcut mshortcuts[] = {
 	/* button               mask            string */
-	{ Button4,              XK_NO_MOD,      "\031" },
-	{ Button5,              XK_NO_MOD,      "\005" },
+//	{ Button4,              XK_NO_MOD,      "\031" },
+//	{ Button5,              XK_NO_MOD,      "\005" },
 };
 
 /* Internal keyboard shortcuts. */
@@ -204,6 +204,8 @@ MouseKey mkeys[] = {
 	{ Button5,              MODKEY,         kscrolldown,    {.i =  1} },
 	{ Button4,              MODKEY|ShiftMask,         zoom,      {.f =  +1} },
 	{ Button5,              MODKEY|ShiftMask,         zoom,    {.f =  -1} },
+	{ Button4,              XK_NO_MOD,      kscrollup,      {.i =  1} },
+	{ Button5,              XK_NO_MOD,      kscrolldown,    {.i =  1} },
 };
 
 static char *openurlcmd[] = { "/bin/sh", "-c",
@@ -220,6 +222,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,     XK_Next,        zoom,           {.f = -1} },
 	{ MODKEY,		XK_Home,	zoomreset,	{.f =  0} },
 	{ ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
+	{ ControlMask,            XK_Insert,    clipcopy,       {.i =  0} },
 	{ MODKEY,               XK_c,           clipcopy,       {.i =  0} },
 	{ MODKEY,               XK_v,           clippaste,      {.i =  0} },
 	{ MODKEY,               XK_p,           selpaste,       {.i =  0} },
